@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500&display=swap");
+
 $pure-color: #fff;
 $base-color: #4056a1;
 $text-color: #edf0f1;
@@ -7,6 +8,7 @@ $hover-text-color: #0088a9;
 $bg-column-color: #627acf;
 $hover-span-color: #c3d0ff;
 $unique-color: #101c47;
+
 * {
   margin: 0;
   padding: 0;
@@ -31,7 +33,7 @@ a {
     "head head"
     "main main"
     "main main"
-    "foot foot";
+    "edit edit";
   height: 100vh;
 }
 
@@ -139,7 +141,7 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
   grid-gap: 10px;
-
+  padding: 10px 0;
   .col {
     background-color: $bg-color;
     color: $pure-color;
@@ -147,6 +149,7 @@ header {
     padding: 15px;
     display: flex;
     justify-content: space-around;
+    position: relative;
     align-items: center;
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
     // box-shadow: 0 4px 0 $unique-color;
@@ -177,9 +180,31 @@ header {
         font-weight: 500;
       }
     }
+    .change {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+
+      span {
+
+        padding: 5px;
+        border-radius: 5px;
+        font-weight: 300;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      span:last-child {
+        background-color: #536abc;
+        box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25);
+        margin: 0 5px;
+        // z-index: 100;
+      }
+    }
 
     &:hover {
-      cursor: pointer;
+      cursor: default;
       background-color: $bg-column-color;
       transform: scale(1.008);
     }
@@ -246,7 +271,7 @@ button {
 .selected {
   .logo-name {
     text-align: center;
-    margin-bottom: 3.5rem;
+    // margin-bottom: 1.5rem;
     font-size: 35px;
     font-weight: bold;
     color: $unique-color;
@@ -282,6 +307,41 @@ label:not(:last-child) {
   justify-content: center;
 }
 
+.students-manipulations {
+  position: absolute;
+  width: 80%;
+  // height: 180px;
+  bottom: 0;
+  left: 10%;
+  grid-area: student;
+  background-color: #536abc;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.25);
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.student-wrap {
+  input[type="text"], input[type="password"] {
+    padding: 1rem 0.3rem;
+    width: 150px;
+    margin-bottom: 0;
+    border-radius: 5px;
+  }
+}
+
+#student-id,#old-student-id {
+  width: 80px;
+}
+#delete {
+  background-color: #a14141;
+}
+
+#edit {
+  background-color: #41a18b;
+}
+
 @media (max-width: 1094px) {
   .students-container {
     .col {
@@ -298,6 +358,9 @@ label:not(:last-child) {
   h1 {
     margin-bottom: 20px;
   }
+  .popup-student-creation {
+    width: 60%;
+  }
 }
 
 @media (max-width: 500px) {
@@ -309,10 +372,14 @@ label:not(:last-child) {
 
 @media (max-width: 340px) {
   main {
-    padding: 30px 0;
+    // padding: 30px 0;
   }
 
   .students-container {
     grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+
+    .col {
+      flex-direction: column;
+    }
   }
 }

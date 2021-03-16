@@ -6,104 +6,72 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Students</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
       <header>
         <h1><span>welcome to </span>StudentsApi</h1>
         <nav>
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a><div class="line"></div></li>
-            <li><a href="login.html">Log in</a><div class="line"></div></li>
-            <li><a href="#">Log out</a><div class="line"></div></li>
+          <ul class="nav-links" id="nav">
+            <li>
+              <a href="index.html">Home</a>
+              <div class="line"></div>
+            </li>
+            <li id="login">
+              <a href="login.html">Log in</a>
+              <div class="line"></div>
+            </li>
+            <li id="logged">
+              <a href="#" id="logout">Log out</a>
+              <div class="line"></div>
+            </li>
+            <li id="reg">
+              <a href="registration.html" id="registration">Registration</a>
+              <div class="line"></div>
+            </li>
           </ul>
         </nav>
       </header>
       <main>
         <div class="students-information">
           <h1>List of Students</h1>
+
           <div class="students-filter">
-          <span>Students</span>
-          <img src="images/up-down.svg" alt="arrow">
+            <span>Students</span>
+            <img src="images/up-down.svg" alt="arrow" />
           </div>
         </div>
-        <div class="students-container">
-          <div class="col">
-            <img src="images/student.svg" alt="student" />
-            <div class="student-details">
-              <span><span>name: </span>Marian Lukavyi</span>
-              <span><span>rating: </span> 100</span>
-              <span><span>email: </span>marian@gmail.com</span>
-            </div>
-          </div>
-          <div class="col">
-            <img src="images/student.svg" alt="student" />
-            <div class="student-details">
-              <span><span>name: </span>Marian Lukavyi</span>
-              <span><span>rating: </span> 100</span>
-              <span><span>email: </span>marian@gmail.com</span>
-            </div>
-          </div>
-          <div class="col">
-            <img src="images/student.svg" alt="student" />
-            <div class="student-details">
-              <span><span>name: </span>Marian Lukavyi</span>
-              <span><span>rating: </span> 100</span>
-              <span><span>email: </span>marian@gmail.com</span>
-            </div>
-          </div>
-          <div class="col">
-            <img src="images/student.svg" alt="student" />
-            <div class="student-details">
-              <span><span>name: </span>Marian Lukavyi</span>
-              <span><span>rating: </span> 100</span>
-              <span><span>email: </span>marian@gmail.com</span>
-            </div>
-          </div>
-          <div class="col">
-            <img src="images/student.svg" alt="student" />
-            <div class="student-details">
-              <span><span>name: </span>Marian Lukavyi</span>
-              <span><span>rating: </span> 100</span>
-              <span><span>email: </span>marian@gmail.com</span>
-            </div>
-          </div>
-          <div class="col">
-            <img src="images/student.svg" alt="student" />
-            <div class="student-details">
-              <span><span>name: </span>Marian Lukavyi</span>
-              <span><span>rating: </span> 100</span>
-              <span><span>email: </span>marian@gmail.com</span>
-            </div>
-          </div>
-          <div class="col">
-            <img src="images/student.svg" alt="student" />
-            <div class="student-details">
-              <span><span>name: </span>Marian Lukavyi</span>
-              <span><span>rating: </span> 100</span>
-              <span><span>email: </span>marian@gmail.com</span>
-            </div>
-          </div>
-          <div class="col">
-            <img src="images/student.svg" alt="student" />
-            <div class="student-details">
-              <span><span>name: </span>Marian Lukavyi</span>
-              <span><span>rating: </span> 100</span>
-              <span><span>email: </span>marian@gmail.com</span>
-            </div>
-          </div>
-          <div class="col">
-            <img src="images/student.svg" alt="student" />
-            <div class="student-details">
-              <span><span>name: </span>Marian Lukavyi</span>
-              <span><span>rating: </span> 100</span>
-              <span><span>email: </span>marian@gmail.com</span>
-            </div>
-          </div>
+        <div class="students-container" id="students">
         </div>
       </main>
-
-      <footer></footer>
+      <div class="students-manipulations">
+        <div class="student-wrap">
+          <input
+            type="text"
+            placeholder="Fullname"
+            id="name-creation"
+          />
+          <input
+            type="text"
+            placeholder="Rating"
+            id="rating-creation"
+          />
+          <button type="button" id="create" name="button">Create</button>
+        </div>
+        <div class="student-wrap">
+          <input type="text" placeholder="id" id="student-id"/>
+          <button type="button" id="delete" name="button">Delete</button>
+        </div>
+        <div class="student-wrap">
+          <input type="text" placeholder="id" id="old-student-id"/>
+          <input type="text" placeholder="New name" id="new-student-name"/>
+          <input type="text" placeholder="New rating" id="new-student-rating"/>
+          <button type="button" id="edit" name="button">Edit</button>
+        </div>
+      </div>
+      <!-- <footer></footer> -->
     </div>
+    <script src="script/script.js"></script>
   </body>
 </html>
